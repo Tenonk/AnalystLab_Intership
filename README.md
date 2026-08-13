@@ -79,7 +79,7 @@ jupyter notebook "notebook/prepro_feat_engin.ipynb"
 `pandas` · `numpy` · `matplotlib` · `seaborn` · `scikit-learn` · `scipy`
 
 ## Author
-
+TENON KONE
 Junior Machine Learning Engineer — AnalystLab Africa Internship Programme
 
 ---
