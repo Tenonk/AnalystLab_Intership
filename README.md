@@ -17,25 +17,34 @@ This project prepares the [Telco Customer Churn dataset](https://www.kaggle.com/
 6. Which features contribute most to solving the business problem?
 7. Is the dataset ready for model training?
 
-Full context and answers are in [`reports/Business_Understanding_Report.docx`](reports/Business_Understanding_Report.docx) and [`reports/Data_Preprocessing_Report.docx`](reports/Data_Preprocessing_Report.docx).
+Full context and answers are in [`reports/Business_Understanding_Report.pdf`](reports/Business_Understanding_Report.pdf) and [`reports/Data_Preprocessing_Report.pdf`](reports/Data_Preprocessing_Report.pdf).
 
 ## Repository Structure
 
 ```
 .
 ├── README.md
-├── notebooks/
-│   └── Week2.ipynb              # Full preprocessing pipeline (Parts 1–6)
+├── .gitignore
+├── notebook/
+│   ├── EDA (2).ipynb            # Week 1 exploratory data analysis
+│   └── prepro_feat_engin.ipynb  # Week 2 preprocessing pipeline (Parts 1–6)
 ├── data/
 │   ├── Telco-Customer-Churn.csv              # Original raw dataset
-│   └── Telco-Customer-Processed-Churn.csv    # Final ML-ready dataset
-├── image/
+│   └── Telco-Customer-processed-Churn.csv    # Final ML-ready dataset
+├── Image/
 │   ├── boxplot_univariate.png   # Outlier check (tenure, MonthlyCharges, TotalCharges)
 │   ├── hisplot_univariate.png   # Distribution histograms
+│   ├── hisplot_bivariate.png    # Bivariate distributions
+│   ├── bar_bivariate.png        # Categorical features vs. churn
+│   ├── violin_bivariate.png     # Numerical distributions by churn
+│   ├── univariate_cat.png       # Categorical feature distributions
+│   ├── target_distribution.png  # Churn class balance
+│   ├── correlation.png          # Correlation heatmap
+│   ├── pairplot.png             # Pairwise feature relationships
 │   └── tenure_groups.png        # Customer count & churn rate by tenure group
 └── reports/
-    ├── Business_Understanding_Report.docx
-    └── Data_Preprocessing_Report.docx
+    ├── Business_Understanding_Report.pdf
+    └── Data_Preprocessing_Report.pdf
 ```
 
 ## Pipeline Summary
@@ -48,7 +57,7 @@ Full context and answers are in [`reports/Business_Understanding_Report.docx`](r
 | **Outlier treatment** | IQR method (1.5×IQR) on `tenure`, `MonthlyCharges`, `TotalCharges` → 7,043 → 7,032 rows |
 | **Feature selection** | Correlation heatmap (dropped `TotalCharges`); Chi² + Cramér's V on categorical features (dropped `gender`, `PhoneService`, `MultipleLines`); Variance Threshold on encoded features (0 dropped) |
 | **Encoding & scaling** | `StandardScaler` on `tenure`/`MonthlyCharges`; One-Hot Encoding on nominal categories; Ordinal Encoding on `tenure_group` |
-| **Output** | `Telco-Customer-Processed-Churn.csv` — 7,032 rows × 40 columns, fully numeric, ready for modeling |
+| **Output** | `Telco-Customer-processed-Churn.csv` — 7,032 rows × 40 columns, fully numeric, ready for modeling |
 
 ## Key Findings
 
@@ -62,7 +71,7 @@ Full context and answers are in [`reports/Business_Understanding_Report.docx`](r
 git clone <repo-url>
 cd <repo-name>
 pip install pandas numpy matplotlib seaborn scikit-learn scipy
-jupyter notebook notebooks/Week2.ipynb
+jupyter notebook "notebook/prepro_feat_engin.ipynb"
 ```
 
 ## Tech Stack
