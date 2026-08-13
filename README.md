@@ -70,7 +70,7 @@ jupyter notebook notebooks/Week2.ipynb
 `pandas` · `numpy` · `matplotlib` · `seaborn` · `scikit-learn` · `scipy`
 
 ## Author
-
+TENON KONE
 Junior Machine Learning Engineer — AnalystLab Africa Internship Programme
 
 ---
